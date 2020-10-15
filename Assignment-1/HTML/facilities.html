@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="">
+    <style>
+        body{
+            font-family: latha;
+            color: white;
+            background:url(../CONTENT/spa.jpg)no-repeat;
+            background-size: cover;
+        }
+        .box{ 
+            width: 900px;
+            float:right;
+            border:1px solid black;
+        }
+        .box ul li{
+            width: 120px;
+            float:left;
+            margin:10px auto;
+            text-align: center;
+        }
+        .box ul li a {
+            text-decoration: none;
+            color:darkgray;
+        }
+        .box ul li:hover {
+            background-color: green;
+        }
+        .box ul li a:hover { color:white; }
+
+        .wd{ width: 550px;
+        height: 800px;
+        background-color: black;
+        opacity: 0.9;
+        padding: 55px;
+        }
+
+        figcaption {
+  background-color: black;
+  color: white;
+  font-style: italic;
+  padding: 2px;
+  text-align: center;
+}
+
+
+
+        .wd h2{
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: normal;
+            margin: 40px;
+        }
+       .column {
+           border: 2px white;
+          margin-left: 50px;
+          margin-bottom: 25px;
+          padding:20px;
+          display: inline-block;
+          width:40%;
+          height:400px;
+          object-fit: cover;
+}
+       
+    </style>
+</head>
+<body>
+    <div class = "box">
+        <ul type = "none">
+            <li><a href = "./home.html">Home</a></li>
+            <li><a href = "./about.html">About</a></li>
+            <li><a href = "./room.html">Room</a></li>
+            <li><a href = "./facilities.html">Facilities</a></li>
+            <li><a href = "./enquiry.html">Enquiry desk</a></li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="column">
+            <h2>Facilities Available </h2>
+            
+          <img class="img_size" src="../CONTENT/swimming pool.jpeg" alt="Snow" style="width:100%" >
+          <figcaption>Swimming pool</figcaption>
+        </div>
+        
+        <div class="column">
+          <img class="img_size" src="../CONTENT/spa1.jpeg" alt="Forest" style="width: 100%">
+          <figcaption>Body Massage</figcaption>
+        </div>
+        
+        <div class="column">
+          <img class="img_size" src="../CONTENT/gym.jpeg" alt="Mountains" style="width:100%">
+          <figcaption>Gym Center</figcaption>
+        </div>
+        
+        <div class="column">
+            <img class="img_size" src="../CONTENT/theatre.jpeg" alt="Mountains" style="width:100%">
+            <figcaption>Open theater</figcaption>
+          </div>
+
+      </div>
+
+    </body>
+    </html>

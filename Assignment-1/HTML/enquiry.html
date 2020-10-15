@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home</title>
+    <style>
+        body{
+            font-family: latha;
+            color: white;
+            background:url(../CONTENT/form.jpeg)no-repeat;
+            background-size: cover;
+        }
+        .box{ 
+            width: 900px;
+            float:right;
+            border:1px solid black;
+        }
+        .box ul li{
+            width: 120px;
+            float:left;
+            margin:10px auto;
+            text-align: center;
+        }
+        .box ul li a {
+            text-decoration: none;
+            color:darkgray;
+        }
+        .box ul li:hover {
+            background-color: green;
+        }
+        .box ul li a:hover { color:white; }
+
+        .wd{ width: 550px;
+        height: 800px;
+        background-color: black;
+        opacity: 0.9;
+        padding: 55px;
+        }
+
+        .wd h1{
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 100px;
+        }
+
+        .wd h4{
+            text-align: justify;
+            color: darkgray;
+            font-weight: normal;
+        }
+
+        .wd h2{
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: normal;
+            margin: 40px;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <div class = "box">
+        <ul type = "none">
+            <li><a href = "./home.html">Home</a></li>
+            <li><a href = "./about.html">About</a></li>
+            <li><a href = "./room.html">Room</a></li>
+            <li><a href = "./facilities.html">Facilities</a></li>
+            <li><a href = "./enquiry.html">Enquiry desk</a></li>
+        </ul>
+    </div>
+    </header>
+    <section>
+       
+        <form >
+            <p><input type = "text" placeholder="Enter the name" id="name"/></p>
+            <p><input type = "tel" placeholder="Enter the Contact details" id="phone"/></p>
+            <p><input type = "email" placeholder="Enter the Email" id="email"/></p>
+            <p><input type = "date" placeholder="Enter the Date of checkin" id="Doc"/></p>
+            <p><input type="number" placeholder="Enter No of days of stay"</p>
+           
+            <p>
+                <datalist id="lststates">
+                    <option>Karnataka</option>
+                    <option>Kerala</option>
+                    <option>Tamil Nadu</option>
+                    <option>Maharashtra</option>
+                    <option>Andhra Pradesh</option>
+                </datalist>
+                <input type="text" placeholder="select the state" list="lststates"/>
+            </p>
+            
+        <p>
+            Pick-Drop from Airport:<br/>
+            <select id="Pick-Drop">
+                <option>Pick</option>
+                <option>Drop</option>
+            </select>
+        </p>
+<p>
+    Please select your Preferences:<br><input type = "radio" name="foodtype">Veg<br><input type="radio" name="foodtype">Non
+    -Veg
+</p>
+<p>
+    Our other facilities:<br>
+    <input type="checkbox">Swimming pool<br>
+    <input type="checkbox">Gym<br>
+    <input type="checkbox">Spa<br>
+    <input type="checkbox">Drinks<br>
+    <input type="checkbox">Sports Club<br>
+</p>
+<p> Thank you for Visiting Hotel Shalimar<br>
+    Please Rate Our Services:
+    <input type="range" min="1" max="10" value="10" step="1"/>
+</p>
+<button type="button" class="btn btn-primary">Button</button>
+        </form>
+    </section>  
+</div>
+
+</body>
+</html>
