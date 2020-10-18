@@ -2,7 +2,7 @@
 
 <head>
 
-<title>Employee Details.</title>
+<title>Employee Details</title>
 
 <script src="./jquery.js"></script>
 
@@ -13,33 +13,31 @@
 
         let i = 1;
 
-        $("#btnAdd").click(function () {
+        $("#Add").click(function () {
 
-            let newHtml = GetHtml().replace("$[Id]", i++).replace("$[Name]", $("#txtname").val()).replace("$[Address]", $("#txtAddress").val()).replace("$[action]", "Edit").replace("$[Delete]", "Delete");
+            let newHTML = GetHtml().replace("$[Id]", i++).replace("$[Name]", $("#txtname").val()).replace("$[Address]", $("#txtAddress").val()).replace("$[action]", "Edit").replace("$[Delete]", "Delete");
 
-            $("#table_td").append(newHtml);
+            $("#table").append(newHtml);
 
         });
 
  
 
-        $("#btnUpdate").click(function () {
+        $("#Update").click(function () {
 
-            let newHtml = GetHtml().replace("$[Id]", $("#txtId").val()).replace("$[Name]", $("#txtname").val()).replace("$[Address]", $("#txtAddress").val()).replace("$[action]", "Edit").replace("$[Delete]", "Delete");
+            let newHtml = GetHtml().replace("$[Id]", $("#Id").val()).replace("$[Name]", $("#name").val()).replace("$[Address]", $("#Address").val()).replace("$[operation]", "Edit").replace("$[Delete]", "Delete");
 
-            $("#table_td").append(newHtml);
+            $("#table").append(newHtml);
 
-            $("#btnAdd").show();
+            $("#Add").show();
 
-            $("#btnUpdate").hide();
+            $("#Update").hide();
 
-            $("#txtId").val('');
+            $("#Id").val('');
 
-            $("#txtname").val('');
+            $("#name").val('');
 
-            //$("#ddlRole option:selected").val('Select')
-
-            $("#txtAddress").val('');
+            $("#Address").val('');
 
         });
 
@@ -47,22 +45,22 @@
 
         $(document).on("click", "#A_Edit", function () {
 
-            $("#btnAdd").hide();
+            $("#Add").hide();
 
-            $("#btnUpdate").show();
+            $("#Update").show();
 
-            $("#txtId").show();
+            $("#Id").show();
 
-            $("#txtId").val($(this).parent().parent().find('.Id').html());
+            $("#Id").val($(this).parent().parent().find('.Id').html());
 
-            $("#txtname").val($(this).parent().parent().find('.Name').html());
+            $("#name").val($(this).parent().parent().find('.Name').html());
 
             //$("#ddlRole option:selected").val($(this).parent().parent().find('.role').html())
 
-            $("#txtAddress").val($(this).parent().parent().find('.Address').html());
+            $("#Address").val($(this).parent().parent().find('.Address').html());
             $(this).parents("tr").remove();
 
-            $("#btnUpdate").focus();
+            $("#Update").focus();
 
  
 
@@ -88,7 +86,7 @@
 
         + "<td class='Address'>$[Address]</td>"
 
-        + "<td class='action'><a href='#' id='A_Edit'> $[action] </a> <a href='#' id='A_delete'>$[Delete]</a></td></tr>";
+        + "<td class='operation'><a href='#' id='A_Edit'> $[operation] </a> <a href='#' id='A_delete'>$[Delete]</a></td></tr>";
 
     }
 
@@ -112,17 +110,17 @@
 
             <th>Address</th>
 
-            <th>Action</th>
+            <th>Operation</th>
 
         </tr>
 
-        <tbody id="table_td"></tbody>
+        <tbody id="table"></tbody>
 
     </table>
 
     <h3>
 
-        Add Employee Details 
+        Add The Employee Details 
 
     </h3>
 
@@ -142,18 +140,18 @@
 
             <td>
 
-                <input type="text" id="txtId" style="display: none" readonly name="ID" value="" />
+                <input type="text" id="id" style="display: none"   />
 
             </td>
 
             <td>
 
-                <input type="text" id="txtname" name="name" value="" />
+                <input type="text" id="name" name="name" />
 
             </td>
             <td>
 
-                <input type="text" id="txtAddress" name="Address" value="" />
+                <input type="text" id="address" name="Address" />
 
             </td>
 
@@ -161,13 +159,13 @@
 
     </table>
 
-    <input type="button" id="btnAdd" style="display: block" value="AddEmployee" />
+    <input type="button" id="Add" style="display: block" value="addEmployee" />
 
-    <input type="button" id="btnUpdate" style="display: none" value="UpdateRecord" />
+    <input type="button" id="Update" style="display: none" value="updateRecord" />
 
     <br />
 
-    <div id="output"></div>
+    <div id="result"></div>
 
 </form>
 
