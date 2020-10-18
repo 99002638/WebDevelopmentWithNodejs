@@ -16,7 +16,7 @@
      mgr.addEmployee(new employee(444, "Mahadev", "Chamarajanagar"));
 
  }
- function onAddClick(){
+ function addClick(){
     $hide("div1");
      $hide("div2");
      $show("div3");
@@ -63,7 +63,7 @@ data.forEach(emp => {
     let row = `<tr><td>${emp.empId}</td><td>${emp.empName}</td><td>${emp.empAddress}</td><td><a href="#" class="edit" sId="${emp.empId}">Edit<button class="delete" dId="${emp.empId}"> X  </button></a></td>`;
         $('tableRecords').innerHTML += row;
         $mapEvent("edit", function(){
-                    debugger;
+                    
                     let selectedId = this.attributes["sid"].value;
                     let empObj = mgr.findEmployee(selectedId);
                     $("empId").innerText = empObj.empId;
