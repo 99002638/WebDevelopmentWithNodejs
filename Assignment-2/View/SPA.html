@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Employee Management System</title>
- <script src="../empData.js"></script>
+ <title>Human Resource Management System</title>
+ <script src="../employeeData.js"></script>
  <script src="../Common.js"></script>
  <script>
  let mgr = new empManager();
@@ -23,7 +21,7 @@
      $hide("div2");
      $show("div3");
  }
- function onAddEmployee(){
+ function addEmployee(){
     let id = $("newId").value;
     let name = $("newName").value;
     let address = $("newAddress").value;
@@ -34,17 +32,36 @@
     $("newAddress").value = "";
     alert("Employee added successfully");
  }
+  
+   function updateRecord(){
+            let id = $("empId").innerText;
+            let name = $("empName").value;
+            let address = $("empAddress").value;
+            
+            let emp = new employee(id, name, address)
+            try {
+                mgr.updateEmployee(emp);
+                alert("Employee updated successfully!!!!");                
+            } catch (error) {
+                alert(error.message);
+            }            
+        }
+  
+  
+  
+  
+  
  function fillRecords(){
     $hide("div3");
      $hide("div2");
      $hide("div1");
      let heading = `<tr><th><Emp Id</th><th>Emp Name</th><th>Emp Address</th><th>Options</th>`;
-        $("tblRecords").innerHTML = heading;
+        $("tableRecords").innerHTML = heading;
         $show("div1");
  let data = mgr.getAll();
 data.forEach(emp => {
     let row = `<tr><td>${emp.empId}</td><td>${emp.empName}</td><td>${emp.empAddress}</td><td><a href="#" class="edit" sId="${emp.empId}">Edit<button class="delete" dId="${emp.empId}"> X  </button></a></td>`;
-        $('tblRecords').innerHTML += row;
+        $('tableRecords').innerHTML += row;
         $mapEvent("edit", function(){
                     debugger;
                     let selectedId = this.attributes["sid"].value;
@@ -59,9 +76,9 @@ data.forEach(emp => {
             
                
                 $mapEvent("delete", function(){
-                    debugger;
+                    
                     let selectedId = this.attributes["did"].value;
-                    if(confirm("Are you sure?"))
+                    if(confirm("Do you want to delete the record?"))
                     {
                        
                         fillRecords();
@@ -77,36 +94,26 @@ data.forEach(emp => {
 });
  
  } 
- function updateRecord(){
-            let id = $("empId").innerText;
-            let name = $("empName").value;
-            let address = $("empAddress").value;
-            //create the employee object...
-            let emp = new employee(id, name, address)
-            try {
-                mgr.updateEmployee(emp);
-                alert("Employee updated!!!!");                
-            } catch (error) {
-                alert(error.message);
-            }            
-        }
+
  </script>
 </head>
 <body onload="init()">
+ 
  <header>
  <nav>
      <a href="#" onclick="fillRecords()">View All</a>
-     <a href="#" onclick="onAddClick()">New Employee</a>
+     <a href="#" onclick="addClick()">New Employee</a>
      <a href="#">About Us</a>
  </nav>
  </header>
+ 
  <section>
  <div id ="div1">
  <h2>List of Employees with Us!!!!</h2>
- <table id="tblRecords" border="1" width="150%">
- 
+ <table id="tableRecords" border="1" width="130%">
  </table>
  </div>
+  
  <div id="div2">
  <h2>Edit the Details of the Employee</h2>
  <p>Employee ID: <span id="empId"></span> </p>
@@ -114,13 +121,15 @@ data.forEach(emp => {
  <p>Employee Address: <input type="text" id="empAddress"></p>
  <p><button onclick="updateRecord()">Update Record</button></p> 
  </div>
+  
  <div id="div3">
  <h2>Add the Details of the Employee</h2>
  <p>Employee ID: <input type="number" id="newId"> </p>
  <p>Employee Name: <input type="text" id="newName"></p>
  <p>Employee Address: <input type="text" id="newAddress"></p>
- <p><button onclick="onAddEmployee()">Add Employee</button></p>
+ <p><button onclick="addEmployee()">Add Employee</button></p>
  </div> 
+  
  </section>
 </body>
 </html>
