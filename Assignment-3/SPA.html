@@ -15,7 +15,7 @@
 
         $("#Add").click(function () {
 
-            let newHTML = GetHtml().replace("$[Id]", i++).replace("$[Name]", $("#txtname").val()).replace("$[Address]", $("#txtAddress").val()).replace("$[action]", "Edit").replace("$[Delete]", "Delete");
+            let newHTML = GetHtml().replace("$[Id]", i++).replace("$[Name]", $("#name").val()).replace("$[Address]", $("#Address").val()).replace("$[operation]", "Edit").replace("$[Delete]", "Delete");
 
             $("#table").append(newHtml);
 
@@ -54,9 +54,7 @@
             $("#Id").val($(this).parent().parent().find('.Id').html());
 
             $("#name").val($(this).parent().parent().find('.Name').html());
-
-            //$("#ddlRole option:selected").val($(this).parent().parent().find('.role').html())
-
+            
             $("#Address").val($(this).parent().parent().find('.Address').html());
             $(this).parents("tr").remove();
 
